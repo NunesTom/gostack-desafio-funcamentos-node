@@ -1,7 +1,4 @@
 /* eslint-disable no-param-reassign */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable consistent-return */
-/* eslint-disable array-callback-return */
 import Transaction from '../models/Transaction';
 
 interface Balance {
@@ -29,13 +26,16 @@ class TransactionsRepository {
 
   public getBalance(): Balance {
     const balance = this.transactions.reduce(
-      (accum, curr) => {
-        if (curr.type === 'income') {
-          accum.income += curr.value;
-        } else if (curr.type === 'outcome') {
-          accum.outcome += curr.value;
-        } else {
-          throw Error('Type is not valid');
+      (accum: Balance, curr: Transaction) => {
+        switch (curr.type) {
+          case 'income':
+            accum.income += curr.value;
+            break;
+          case 'outcome':
+            accum.outcome += curr.value;
+            break;
+          default:
+            break;
         }
 
         return accum;

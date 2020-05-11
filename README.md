@@ -33,7 +33,7 @@ Linhas de Comando:
 $ git clone https://github.com/NunesTom/gostack-desafio-fundamentos-node.git
 
 # Go into the repository
-$ cd gostack-desafio-fujndamentos-node
+$ cd gostack-desafio-fundamentos-node
 
 # Install dependencies
 $ yarn
